@@ -9,15 +9,15 @@ various bits of elisp I use with prelude.
 
 File Listing:
 .
-├── c.el                ;; customisations for working with C code
-├── clojure.el          ;; customisations for working with Clojure code
-├── cmus.el             ;; control the C* Music Player from emacs
-├── common-lisp.el      ;; customisations for working with Common Lisp code
-├── custom.el           ;; basic customisations (like themes)
-├── machine.el          ;; per-machine customisations
-├── news.el             ;; newsticker setup
-├── puppet.el           ;; customisations for dealing with puppet manifests
-└── README              ;; this file
+├── c.el                ;; customisations for working with C code.
+├── clojure.el          ;; customisations for working with Clojure code.
+├── cmus.el             ;; control the C* Music Player from emacs.
+├── common-lisp.el      ;; customisations for working with Common Lisp code.
+├── custom.el           ;; basic customisations (like themes).
+├── machine.el          ;; per-machine customisations.
+├── news.el             ;; newsticker setup. C-c C-n loads the tree view.
+├── puppet.el           ;; customisations for dealing with puppet manifests.
+└── README              ;; this file.
 
 customisations:
         * use scpaste (a mode that allows the current buffer to be formatted
