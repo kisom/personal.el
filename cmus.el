@@ -10,13 +10,13 @@
 (defun cmus-get-status-property (status property)
   "Search the status for the requested property."
   (replace-regexp-in-string property ""
-			    (car
-			     (delq nil
-				   (mapcar (lambda (prop-line)
-					     (if (string-match property prop-line)
-						 prop-line
-					       nil))
-					   status)))))
+                            (car
+                             (delq nil
+                                   (mapcar (lambda (prop-line)
+                                             (if (string-match property prop-line)
+                                                 prop-line
+                                               nil))
+                                           status)))))
 
 (defun cmus-get-artist (status)
   "Return the currently playing track."
@@ -39,12 +39,12 @@
   "Returns true if cmus is currently playing."
   (let ((status (cmus-get-status-property (cmus-status) "status ")))
     (if (equal status "playing")
-	(progn
-	  (message "playing")
-	  t)
+        (progn
+          (message "playing")
+          t)
       (progn
-	(message "paused")
-	nil))))
+        (message "paused")
+        nil))))
 
 ;;; interactive functions
 
@@ -63,8 +63,8 @@
   (interactive)
   (if (cmus-playingp)
       (progn
-	(message "Pausing..")
-	(shell-command-to-string "cmus-remote --pause"))
+        (message "Pausing..")
+        (shell-command-to-string "cmus-remote --pause"))
     (progn
       (message "Playing.")
       (shell-command-to-string "cmus-remote --play"))))
@@ -79,15 +79,15 @@
   (interactive)
   (let ((status (cmus-status)))
     (let ((artist (cmus-get-artist status))
-	  (album (cmus-get-album status))
-	  (title (cmus-get-title status))
-	  (status (cmus-get-status-property status "status ")))
+          (album (cmus-get-album status))
+          (title (cmus-get-title status))
+          (status (cmus-get-status-property status "status ")))
       (message (concat artist " - " title " (" album ")")))))
 
 (defun cmus-set-volume (volume)
   "Set the current volume in cmus"
   (interactive (let ((volume (read-string "Volume: ")))
-		 (list volume)))
+                 (list volume)))
   (let ((volume (if (stringp volume) volume (car volume))))
     (shell-command-to-string (concat "cmus-remote -v " volume "%"))))
 
@@ -97,9 +97,9 @@
   (shell-command-to-string "cmus-remote -S")
   (message
    (concat "shuffle is "
-	   (if (equal "true" (cmus-get-status-property (cmus-status) "set shuffle "))
-	       "on"
-	     "off"))))
+           (if (equal "true" (cmus-get-status-property (cmus-status) "set shuffle "))
+               "on"
+             "off"))))
 
 (defun cmus-toggle-repeat ()
   "Toggle playing repeat."
@@ -107,9 +107,9 @@
   (shell-command-to-string "cmus-remote -R")
   (message
    (concat "repeat is "
-	   (if (equal "true" (cmus-get-status-property (cmus-status) "set repeat "))
-	       "on"
-	     "off"))))
+           (if (equal "true" (cmus-get-status-property (cmus-status) "set repeat "))
+               "on"
+             "off"))))
 
 (defun cmus-toggle-mode ()
   "Toggle between artist, album and all modes."
@@ -117,12 +117,12 @@
   (shell-command-to-string "cmus-remote -C \"toggle aaa_mode\"")
   (message
    (concat "current mode: "
-	   (cmus-get-status-property (cmus-status) "set aaa_mode "))))
+           (cmus-get-status-property (cmus-status) "set aaa_mode "))))
 
 (global-set-key (kbd "C-c C-m x") 'cmus-play-pause)
 (global-set-key (kbd "C-c C-m n") 'cmus-next-track)
 (global-set-key (kbd "C-c C-m p") 'cmus-prev-track)
-(global-set-key (kbd "C-c C-m k") 'cmus-play-stop)
+(global-set-key (kbd "C-c C-m k") 'cmus-stop)
 (global-set-key (kbd "C-c C-m s") 'cmus-now-playing)
 (global-set-key (kbd "C-c C-m v") 'cmus-set-volume)
 (global-set-key (kbd "C-c C-m h") 'cmus-toggle-shuffle)
