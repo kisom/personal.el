@@ -1,0 +1,44 @@
+various bits of elisp I use with prelude.
+
+;; uncomment and evaluate to dump files to this document
+;; to update the list.
+;; (insert (concat
+;;          "\n\nFile Listing:\n"
+;;          (replace-regexp-in-string "[0-9]+ directories, [0-9]+ files" ""
+;;          (shell-command-to-string "tree") "\n")))
+
+File Listing:
+.
+├── c.el                ;; customisations for working with C code
+├── clojure.el          ;; customisations for working with Clojure code
+├── cmus.el             ;; control the C* Music Player from emacs
+├── common-lisp.el      ;; customisations for working with Common Lisp code
+├── custom.el           ;; basic customisations (like themes)
+├── machine.el          ;; per-machine customisations
+├── news.el             ;; newsticker setup
+├── puppet.el           ;; customisations for dealing with puppet manifests
+└── README              ;; this file
+
+customisations:
+        * use scpaste (a mode that allows the current buffer to be formatted
+          and SCP'd to my paste server.)
+        * set the PATH environment variable from my .zshrc when using
+          shell-command-to-string
+        * set the theme
+
+cmus:
+        The prefix keybinding for the cmus commands is 'C-c C-m'. The commands are
+        
+          x     play or pause cmus
+          k     kill cmus (stop play)
+          n     next track
+          p     previous track
+          s     show the currently playing track in the minibuffer
+          h     toggle shuffle
+          r     toggle repeat
+          m     toggle the album, artist, all mode
+
+
+          
+
+
