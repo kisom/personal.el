@@ -14,10 +14,12 @@ File Listing:
 ├── cmus.el             ;; control the C* Music Player from emacs.
 ├── common-lisp.el      ;; customisations for working with Common Lisp code.
 ├── custom.el           ;; basic customisations (like themes).
-├── machine.el          ;; per-machine customisations.
+├── machine.el          ;; per-machine customisations[1].
 ├── news.el             ;; newsticker setup. C-c C-n loads the tree view.
 ├── puppet.el           ;; customisations for dealing with puppet manifests.
 └── README              ;; this file.
+
+[1]: An initial version is provided, but isn't tracked.
 
 customisations:
         * use scpaste (a mode that allows the current buffer to be formatted

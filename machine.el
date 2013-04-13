@@ -1,4 +1,4 @@
-(set-face-attribute 'default nil :font "Anonymous Pro 10")
+(set-face-attribute 'default nil :font "Anonymous Pro 14")
 
 
 ;(load (expand-file-name "~/quicklisp/slime-helper.el"))

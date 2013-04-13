@@ -5,7 +5,7 @@
 (setq newsticker-html-renderer 'w3m-region)
 
 ; We want our feeds pulled every 10 minutes.
-(setq newsticker-retrieval-interval 600)
+(setq newsticker-retrieval-interval 3600)
 
 ; Setup the feeds. We'll have a look at these in just a second.
 (setq newsticker-url-list-defaults nil)
@@ -16,4 +16,4 @@
 (global-set-key (kbd "C-c C-n") 'newsticker-treeview)
 
 ; Don't forget to start it!
-(newsticker-start)
+;(newsticker-start)
