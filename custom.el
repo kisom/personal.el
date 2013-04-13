@@ -23,3 +23,15 @@
       scpaste-scp-destination "brokenlcd.net:sites/p")
 
 (setq inferior-lisp-program "sbcl") 
+
+(defun kill-matching-buffers (regexp &optional internal-too)
+   "Kill buffers whose name matches the specified REGEXP.
+   The optional second argument indicates whether to kill internal buffers too."
+     (interactive "sKill buffers matching this regular expression: \nP")
+       (dolist (buffer (buffer-list))
+            (let ((name (buffer-name buffer)))
+                   (when (and name (not (string-equal name ""))
+                                           (or internal-too (/= (aref name 0) ?\s))
+                                                            (string-match regexp name))
+                            (kill-buffer-ask buffer)))))
+
