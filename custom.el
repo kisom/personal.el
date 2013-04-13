@@ -14,8 +14,6 @@
  ;; If there is more than one, they won't work right.
  )
 
-(load-library "mediawiki")
-
 ;;; get the proper path for shell commands
 (setenv "PATH" (shell-command-to-string ". $HOME/.zshrc ; echo $PATH"))
 
@@ -24,7 +22,4 @@
 (setq scpaste-http-destination "http://p.kyleisom.net"
       scpaste-scp-destination "brokenlcd.net:sites/p")
 
-(if (file-exists-p (expand-file-name "~/quicklisp/"))
-      (load (expand-file-name "~/quicklisp/slime-helper.el")))
-;;; add MW site at end in case network isn't up yet
-;;; (mediawiki-site "dropsonde")
+(setq inferior-lisp-program "sbcl") 
