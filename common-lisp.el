@@ -1,7 +1,7 @@
 ;;; tweaks for common lisp editing
 (dolist (hook '(emacs-lisp-mode-hook
-		 lisp-mode-hook
-		 slime-repl-mode-hook))
+                 lisp-mode-hook
+                 slime-repl-mode-hook))
   (add-hook hook #'(lambda nil (paredit-mode 1))))
 
 (if (file-exists-p (expand-file-name "~/quicklisp/"))
@@ -13,3 +13,12 @@
 (add-hook 'lisp-mode-hook             (lambda () (paredit-mode +1)))
 (add-hook 'lisp-interaction-mode-hook (lambda () (paredit-mode +1)))
 (add-hook 'scheme-mode-hook           (lambda () (paredit-mode +1)))
+
+(defun expander ()
+  (interactive)
+  (cond
+   ((and (eql major-mode 'lisp-mode)
+         (slime-connected-p)) (slime-complete-symbol*))
+   (t (hippie-expand))))
+
+(global-set-key (kbd "<C-tab>") 'expander)
