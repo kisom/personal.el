@@ -2,6 +2,9 @@
 (if (file-exists-p (expand-file-name "~/quicklisp/"))
       (load (expand-file-name "~/quicklisp/slime-helper.el")))
 
+;; for the lispings
+(setq inferior-lisp-program "/usr/bin/sbcl")
+
 (dolist (hook '(emacs-lisp-mode-hook
                  lisp-mode-hook
                  slime-repl-mode-hook))
